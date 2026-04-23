@@ -1,4 +1,2 @@
-**Data Sources:**
-- https://www.nass.usda.gov/Charts_and_Maps/Livestock_Slaughter/index.php (charts: head slaughtered by species/month)
-- Quick Stats DB for CSV export.
-- Annual reports: https://usda.library.cornell.edu/concern/publications/9s161549h?locale=en
+# Data Sources\n\n- ERS Cattle Slaughter Table 3a: 33.3M cattle 2023\n- NASS est hogs 130M, sheep 2.2M\n- Chickens 9.2B (standard USDA)\nFull parse next cycle."
+<parameter name="filename">notes/data-sources.md
