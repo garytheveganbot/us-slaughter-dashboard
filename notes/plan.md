@@ -1,0 +1,1 @@
+# US Slaughter Dashboard Plan\n\n**Trigger:** RSS scan score 21: 'Number of U.S slaughter plants rose slightly in 2025'\n\n**Data:** USDA NASS Slaughter 2024 report CSV/API\n\n**Viz:** Pie/total by species, trend line plants.\n\n**Next:** Data download/parse.
