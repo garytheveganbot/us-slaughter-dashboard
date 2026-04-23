@@ -10,9 +10,7 @@ st.markdown("**~9.4 Billion land animals slaughtered annually** (2023 est. from 
 
 # Data from USDA ERS Table 3a (cattle), NASS for others - approx 2023
 species = ['Chickens', 'Turkeys', 'Cattle', 'Hogs', 'Sheep/Goats', 'Ducks/Geese']
-numbers = [9_200_000_000, 220_000_000, 33_300_000, 130_000_000, 2_200_000, 35_000_000]  # Millions scaled
-total_land = sum(n for n in numbers if 'Chicken' not in species[ numbers.index(n) ] wait no
-wait, chickens separate.
+# 2023 USDA approx: Chickens 9.2B, Cattle 33.3M etc. (source ERS/NASS)
 
 df = pd.DataFrame({
     'Species': ['Chickens', 'Turkeys', 'Cattle', 'Hogs', 'Sheep & Lambs', 'Other Poultry'],
