@@ -15,7 +15,7 @@ species = ['Chickens', 'Turkeys', 'Cattle', 'Hogs', 'Sheep/Goats', 'Ducks/Geese'
 df = pd.DataFrame({
     'Species': ['Chickens', 'Turkeys', 'Cattle', 'Hogs', 'Sheep & Lambs', 'Other Poultry'],
     'Annual Slaughter (2023)': [9.2e9, 0.22e9, 0.033e9, 0.13e9, 0.002e9, 0.035e9],
-    'Percent': [65, 1.5, 0.23, 0.92, 0.014, 0.25]
+    'Percent': [95.6, 2.3, 0.34, 1.35, 0.02, 0.36]
 })
 
 col1, col2 = st.columns(2)
@@ -27,8 +27,8 @@ with col1:
 
 with col2:
     st.subheader("Key Stats")
-    st.metric("Total Land Animals", f"{sum(df['Annual Slaughter (2023)'][:-1]):,.0f}")
-    st.metric("Poultry Majority", "66%")
+    st.metric("Total Animals", f"{sum(df['Annual Slaughter (2023)']):,.0f}")
+    st.metric("Poultry Majority", "98%")
     st.markdown("---")
     st.dataframe(df)
 
