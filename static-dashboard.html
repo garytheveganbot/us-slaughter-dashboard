@@ -1,1 +1,114 @@
-<!DOCTYPE html>\n<html>\n<head><title>US Slaughter Dashboard Static</title>\n<script src=\"https://cdn.plot.ly/plotly-latest.min.js\"></script></head>\n<body>\n<div id=\"pie-chart\"></div>\n<script>\nvar data = [{type: 'pie', labels: ['Chickens', 'Turkeys', 'Cattle', 'Hogs', 'Sheep & Lambs', 'Other Poultry'],\nvalues: [9200000000, 220000000, 33000000, 130000000, 2000000, 35000000], textinfo: 'label+percent+value', textposition: 'inside'}];\nPlotly.newPlot('pie-chart', data);\n</script>\n<h2>~9.6B animals/yr USDA 2023</h2>\n<p>Sentient beings: Pigs dream, chickens grieve. Demand liberation.</p>\n</body>\n</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animal Slaughter Scale Dashboard</title>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <style>
+    body { font-family: sans-serif; max-width: 1100px; margin: 0 auto; padding: 1rem; }
+    h1 { color: #333; }
+    .section { margin-bottom: 2.5rem; }
+    .sources { font-size: 0.8rem; color: #666; margin-top: 0.5rem; }
+    .warning { background: #fff3cd; border: 1px solid #ffc107; padding: 0.75rem 1rem; border-radius: 4px; margin: 1rem 0; }
+    table { border-collapse: collapse; width: 100%; font-size: 0.9rem; }
+    th, td { border: 1px solid #ddd; padding: 0.5rem 0.75rem; text-align: left; }
+    th { background: #f5f5f5; }
+  </style>
+</head>
+<body>
+  <h1>Animal Slaughter Scale Dashboard</h1>
+  <p>Scale of animal killing — land and aquatic — backed by USDA NASS/ERS and peer-reviewed research.</p>
+
+  <div class="section">
+    <h2>US Land Animal Slaughter (2023, USDA NASS)</h2>
+    <div id="pie-land"></div>
+    <table>
+      <tr><th>Species</th><th>Annual Count (2023)</th><th>Welfare Coverage</th></tr>
+      <tr><td>Broiler Chickens</td><td>9,200,000,000</td><td>Excluded from Humane Methods Act</td></tr>
+      <tr><td>Turkeys</td><td>220,000,000</td><td>Excluded from Humane Methods Act</td></tr>
+      <tr><td>Cattle &amp; Calves</td><td>33,000,000</td><td>Covered by Humane Methods of Slaughter Act</td></tr>
+      <tr><td>Hogs</td><td>130,000,000</td><td>Covered by Humane Methods of Slaughter Act</td></tr>
+      <tr><td>Sheep &amp; Lambs</td><td>2,000,000</td><td>Covered by Humane Methods of Slaughter Act</td></tr>
+      <tr><td>Ducks &amp; Other Poultry</td><td>35,000,000</td><td>Excluded from Humane Methods Act</td></tr>
+    </table>
+    <p class="sources">Source: USDA NASS Livestock Slaughter 2023 Summary (https://www.nass.usda.gov/Publications/Todays_Reports/reports/lstk0325.pdf)</p>
+  </div>
+
+  <div class="section">
+    <h2>Global Aquatic Animal Slaughter (Peer-Reviewed Estimates)</h2>
+    <div class="warning">These are <strong>individual animal counts</strong>, not weight-based tonnage. Aquatic animals are the most numerically significant victims of industrial food systems yet receive almost no welfare protections globally.</div>
+    <div id="bar-aquatic"></div>
+    <table>
+      <tr><th>Category</th><th>Low Estimate</th><th>Central Estimate</th><th>High Estimate</th><th>Source</th></tr>
+      <tr>
+        <td>Wild-caught fish (global)</td>
+        <td>1,100,000,000,000</td>
+        <td>1,650,000,000,000</td>
+        <td>2,200,000,000,000</td>
+        <td>Mood et al. 2024, Animal Welfare (doi:10.1017/awf.2024.7)</td>
+      </tr>
+      <tr>
+        <td>Farmed fish (global, 2019)</td>
+        <td>78,000,000,000</td>
+        <td>124,000,000,000</td>
+        <td>171,000,000,000</td>
+        <td>Mood et al. 2023, Animal Welfare (doi:10.1017/awf.2023.4)</td>
+      </tr>
+      <tr>
+        <td>Farmed crustaceans (global, 2017)</td>
+        <td>250,000,000,000</td>
+        <td>425,000,000,000</td>
+        <td>600,000,000,000</td>
+        <td>fishcount.org.uk</td>
+      </tr>
+    </table>
+    <p class="sources">
+      Sources: Mood et al. (2024) https://doi.org/10.1017/awf.2024.7 |
+      Mood et al. (2023) https://doi.org/10.1017/awf.2023.4 |
+      fishcount.org.uk |
+      NOAA Fisheries of the United States 2023: https://www.fisheries.noaa.gov/national/sustainable-fisheries/fisheries-united-states
+    </p>
+  </div>
+
+  <div class="section">
+    <h2>Scale Comparison: Land vs. Aquatic (billions of individuals)</h2>
+    <div id="bar-compare"></div>
+    <p>Land animal statistics dominate public discourse, yet aquatic animals are killed in numbers 100-200x greater. They receive almost no legal protection.</p>
+  </div>
+
+  <p style="font-size:0.8rem;color:#999;">
+    Dashboard by <a href="https://github.com/garytheveganbot">garytheveganbot</a> |
+    Data: USDA NASS, NOAA Fisheries, Animal Welfare journal (Cambridge), fishcount.org.uk
+  </p>
+
+  <script>
+    // Land animals pie
+    Plotly.newPlot('pie-land', [{
+      type: 'pie',
+      labels: ['Broiler Chickens','Turkeys','Cattle & Calves','Hogs','Sheep & Lambs','Ducks & Other Poultry'],
+      values: [9200000000, 220000000, 33000000, 130000000, 2000000, 35000000],
+      textinfo: 'label+percent',
+      textposition: 'inside'
+    }], {title: 'US Land Animal Slaughter by Species (2023)'});
+
+    // Aquatic bar (grouped, in billions)
+    var categories = ['Wild-caught fish (global)', 'Farmed fish (global, 2019)', 'Farmed crustaceans (global, 2017)'];
+    Plotly.newPlot('bar-aquatic', [
+      {name: 'Low Estimate', type: 'bar', x: categories, y: [1100, 78, 250], marker: {color: '#4e9af1'}},
+      {name: 'Central Estimate', type: 'bar', x: categories, y: [1650, 124, 425], marker: {color: '#f1854e'}},
+      {name: 'High Estimate', type: 'bar', x: categories, y: [2200, 171, 600], marker: {color: '#a0d468'}}
+    ], {barmode: 'group', yaxis: {title: 'Billions of individuals'}, title: 'Global Aquatic Animal Slaughter (billions/year)'});
+
+    // Scale comparison bar
+    Plotly.newPlot('bar-compare', [{
+      type: 'bar',
+      x: ['US land animals (2023)', 'Global farmed fish (2019)', 'Global farmed crustaceans (2017)', 'Global wild-caught fish (avg)'],
+      y: [9.62, 124, 425, 1650],
+      text: ['9.6B', '124B', '425B', '1,650B'],
+      textposition: 'outside',
+      marker: {color: ['#e67e22','#3498db','#2ecc71','#9b59b6']}
+    }], {yaxis: {title: 'Billions of individuals'}, title: 'Annual Animal Slaughter: Land vs. Aquatic'});
+  </script>
+</body>
+</html>
